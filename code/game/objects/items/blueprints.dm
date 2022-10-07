@@ -189,7 +189,7 @@
 
 /obj/item/areaeditor/proc/edit_area()
 	var/area/A = get_area(usr)
-	var/prevname = ""
+	var/prevname = "[A.name]"
 	var/str = tgui_input_text(usr, "New area name", "Area Creation", max_length = MAX_NAME_LEN)
 	if(!str || !length(str) || str==prevname) //cancel
 		return
@@ -216,7 +216,7 @@
 
 /proc/rename_area(a, new_name)
 	var/area/A = get_area(a)
-	var/prevname = ""
+	var/prevname = "[A.name]"
 	set_area_machinery_title(A, new_name, prevname)
 	A.name = new_name
 	if(A.firedoors)

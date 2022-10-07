@@ -317,7 +317,7 @@
 	stored_color = chosen_color
 
 /datum/asset/spritesheet/decals
-	name = ""
+	name = "floor_decals"
 	cross_round_cachable = TRUE
 
 	/// The floor icon used for blend_preview_floor()
@@ -433,7 +433,7 @@
 	target.AddElement(/datum/element/decal, 'icons/turf/decals.dmi', source_decal, source_dir, null, null, decal_alpha, decal_color, null, FALSE, null)
 
 /datum/asset/spritesheet/decals/tiles
-	name = ""
+	name = "floor_tile_decals"
 	painter_type = /obj/item/airlock_painter/decal/tile
 
 /datum/asset/spritesheet/decals/tiles/insert_state(decal, dir, color)

@@ -784,7 +784,7 @@
 	else
 		assignment_string = assignment
 
-	name = ""
+	name = "[name_string] ([assignment_string])"
 
 /// Returns the trim assignment name.
 /obj/item/card/id/proc/get_trim_assignment()
@@ -857,7 +857,7 @@
 		registered_account = B
 		if(!B.bank_cards.Find(src))
 			B.bank_cards += src
-		name = ""
+		name = "departmental card ([department_name])"
 		desc = "允许访问 [department_name]"
 	SSeconomy.dep_cards += src
 
@@ -1089,7 +1089,7 @@
 
 /obj/item/card/id/advanced/gold/captains_spare/update_label() //so it doesn't change to Captain's ID card (Captain) on a sneeze
 	if(registered_name == "Captain")
-		name = ""
+		name = "[initial(name)][(!assignment || assignment == "Captain") ? "" : " ([assignment])"]"
 		update_appearance(UPDATE_ICON)
 	else
 		..()
@@ -1184,7 +1184,7 @@
 
 /obj/item/card/id/advanced/black/syndicate_command/captain_id/syndie_spare/update_label()
 	if(registered_name == "Captain")
-		name = ""
+		name = "[initial(name)][(!assignment || assignment == "Captain") ? "" : " ([assignment])"]"
 		update_appearance(UPDATE_ICON)
 		return
 
@@ -1536,11 +1536,11 @@
 				if(!input_name)
 					// Invalid/blank names give a randomly generated one.
 					if(user.gender == MALE)
-						input_name = ""
+						input_name = "[pick(GLOB.first_names_male)] [pick(GLOB.last_names)]"
 					else if(user.gender == FEMALE)
-						input_name = ""
+						input_name = "[pick(GLOB.first_names_female)] [pick(GLOB.last_names)]"
 					else
-						input_name = ""
+						input_name = "[pick(GLOB.first_names)] [pick(GLOB.last_names)]"
 
 				registered_name = input_name
 
@@ -1558,7 +1558,7 @@
 						var/datum/id_trim/trim = SSid_access.trim_singletons_by_path[trim_path]
 
 						if(trim && trim.trim_state && trim.assignment)
-							var/fake_trim_name = ""
+							var/fake_trim_name = "[trim.assignment] ([trim.trim_state])"
 							trim_list[fake_trim_name] = trim_path
 
 					var/selected_trim_path = tgui_input_list(user, "Select trim to apply to your card.\nNote: This will not grant any trim accesses.", "Forge Trim", sort_list(trim_list, /proc/cmp_typepaths_asc))

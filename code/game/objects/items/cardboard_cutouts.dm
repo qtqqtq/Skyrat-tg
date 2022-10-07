@@ -46,7 +46,7 @@
 
 /obj/item/cardboard_cutout/proc/push_over()
 	name = initial(name)
-	desc = ""
+	desc = "[initial(desc)] It's been pushed over."
 	icon = initial(icon)
 	icon_state = "cutout_pushed_over"
 	remove_atom_colour(FIXED_COLOUR_PRIORITY)
@@ -116,7 +116,7 @@
 		add_atom_colour("#FFD7A7", FIXED_COLOUR_PRIORITY)
 	switch(new_appearance)
 		if(JOB_ASSISTANT)
-			name = ""
+			name = "[pick(GLOB.first_names_male)] [pick(GLOB.last_names)]"
 			desc = "一个助手的纸板模型"
 			icon_state = "cutout_greytide"
 		if("Clown")
@@ -132,7 +132,7 @@
 			desc = "一个叛徒的纸板模型"
 			icon_state = "cutout_traitor"
 		if("Nuke Op")
-			name = ""
+			name = "[pick("Unknown", "COMMS", "Telecomms", "AI", "stealthy op", "STEALTH", "sneakybeaky", "MEDIC", "Medic")]"
 			desc = "一个核行动的纸板模型"
 			icon_state = "cutout_fluke"
 		if("Cultist")
@@ -140,29 +140,29 @@
 			desc = "一个邪教徒的纸板模型"
 			icon_state = "cutout_cultist"
 		if("Clockwork Cultist")
-			name = ""
-			desc = "一个鼠王的仆人的纸板模型"
+			name = "[pick(GLOB.first_names_male)] [pick(GLOB.last_names)]"
+			desc = "一个钟表神的仆人的纸板模型"
 			icon_state = "cutout_servant"
 		if("Revolutionary")
 			name = "未知"
 			desc = "一个革命的纸板模型"
 			icon_state = "cutout_viva"
 		if("Wizard")
-			name = ""
+			name = "[pick(GLOB.wizard_first)], [pick(GLOB.wizard_second)]"
 			desc = "一个巫师的纸板模型"
 			icon_state = "cutout_wizard"
 		if("Nightmare")
-			name = ""
+			name = "[pick(GLOB.nightmare_names)]"
 			desc = "一个梦魇的纸板模型"
 			icon_state = "cutout_nightmare"
 		if("Xenomorph")
-			name = ""
+			name = "alien hunter ([rand(1, 999)])"
 			desc = "一个异形的纸板模型"
 			icon_state = "cutout_fukken_xeno"
 			if(prob(25))
 				alpha = 75 //Spooky sneaking!
 		if("Xenomorph Maid")
-			name = ""
+			name = "lusty xenomorph maid ([rand(1, 999)])"
 			desc = "一个元气满满的异形女仆的纸板模型"
 			icon_state = "cutout_lusty"
 		if("Ash Walker")
